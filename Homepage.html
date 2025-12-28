@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift for My GF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #ff69b4;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ff1493;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+
+			.letters-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr); /* 3 columns */
+		gap: 20px;
+		justify-items: center;
+		margin-top: 20px;
+			}
+
+		.letter-name {
+			background-color: #ffebcd; /* light pastel box */
+			padding: 20px;
+			border-radius: 12px;
+			box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+			font-size: 18px;
+			font-weight: bold;
+			cursor: pointer;
+			width: 100%;
+			max-width: 200px;
+			text-align: center;
+			transition: transform 0.2s, background-color 0.2s;
+		}
+
+		.letter-name:hover {
+			background-color: #ffd700;
+			transform: scale(1.05);
+		}
+
+		.letter-note {
+			background-color: #fff9c4;
+			padding: 20px;
+			border-radius: 15px;
+			box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+			font-size: 16px;
+			text-align: left;
+			max-width: 500px;
+			margin: 20px auto;
+		}
+		}
+		}
+    </style>
+</head>
+<body>
+    <!-- Homepage -->
+    <div id="homepage">
+        <h1>Happy Birthday, Love! 🎉</h1>
+        <p>Welcome to Crush special gift! Click below to see what I made for Crush 💖</p>
+        <a href="#pictures" class="button" onclick="showPage('pictures')">Pictures Album</a>
+        <a href="#letters" class="button" onclick="showPage('letters')">Letters</a>
+    </div>
+
+<!-- Pictures Album -->
+    <div id="pictures" class="content" style="display:none;">
+        <h1>Pictures Album 📸</h1>
+        <div>
+            <img src="https://via.placeholder.com/400x300?text=Picture+1" alt="Picture 1">
+            <img src="https://via.placeholder.com/400x300?text=Picture+2" alt="Picture 2">
+            <img src="https://via.placeholder.com/400x300?text=Picture+3" alt="Picture 3">
+        </div>
+        <br>
+        <button class="button" onclick="showPage('homepage')">Back to Home</button>
+    </div>
+	 <!-- Letters -->
+   <div id="letters" class="content" style="display:none;">
+    <h1>Letters ✉️</h1>
+
+    <!-- Grid of names -->
+    <div id="names-grid" class="letters-grid">
+        <div class="letter-name" onclick="showLetter('Jeza')">Jeza</div>
+        <div class="letter-name" onclick="showLetter('Zia')">Zia</div>
+        <div class="letter-name" onclick="showLetter('Ashley')">Ashley</div>
+        <div class="letter-name" onclick="showLetter('Kird')">Kird</div>
+        <div class="letter-name" onclick="showLetter('Crush')">Crush</div>
+    </div>
+
+    <!-- Full letters (hidden initially) -->
+    <div id="full-letters" style="display:none;">
+        <div id="Jeza" class="letter-note">
+            <strong>Jeza:</strong><br>
+            Happy Birthday! Crush are amazing and I hope Crush have the best day ever! 🎉💖
+        </div>
+
+        <div id="Zia" class="letter-note">
+            <strong>Zia:</strong><br>
+            Wishing Crush lots of happiness and love today and always! 🥰
+        </div>
+
+        <div id="Ashley" class="letter-note">
+            <strong>Ashley:</strong><br>
+            Crush deserve the world! Happy Birthday, [Her Name]! 🌸
+        </div>
+
+        <div id="Kird" class="letter-note">
+            <strong>Kird:</strong><br>
+            Hope Crushr day is as beautiful and sweet as Crush are! 💌
+        </div>
+
+        <div id="Crush" class="letter-note">
+            <strong>Me:</strong><br>
+            And of course, I just want to say how much I love Crush. Happy Birthday, my love! ❤️
+        </div>
+
+        <br>
+        <button class="button" onclick="backToGrid()">Back</button>
+    </div>
+
+    <br>
+    <button class="button" onclick="showPage('homepage')">Back to Home</button>
+</div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all sections
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('pictures').style.display = 'none';
+            document.getElementById('letters').style.display = 'none';
+            // Show selected section
+            document.getElementById(pageId).style.display = 'block';
+        }
+		function showLetter(id) {
+			document.getElementById('names-grid').style.display = 'none';
+			document.getElementById('full-letters').style.display = 'block';
+
+			// Hide all letters first
+			const letters = document.querySelectorAll('#full-letters .letter-note');
+			letters.forEach(letter => letter.style.display = 'none');
+
+			// Show the selected letter
+			document.getElementById(id).style.display = 'block';
+		}
+
+		function backToGrid() {
+			document.getElementById('full-letters').style.display = 'none';
+			document.getElementById('names-grid').style.display = 'grid';
+		}
+
+    </script>
+</body>
+</html>
